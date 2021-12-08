@@ -11,6 +11,8 @@ import {
 } from "@mui/material";
 import { Box } from "@mui/system";
 import { NavLink } from "react-router-dom";
+import Brightness4Icon from "@mui/icons-material/Brightness4";
+import Brightness7Icon from "@mui/icons-material/Brightness7";
 
 interface Props {
     darkMode: boolean;
@@ -60,7 +62,13 @@ export default function Header({ darkMode, handleThemeChange }: Props) {
                     >
                         RE-STORE
                     </Typography>
-                    <Switch checked={darkMode} onChange={handleThemeChange} />
+                    <IconButton
+                        sx={{ ml: 1 }}
+                        onClick={handleThemeChange}
+                        color='inherit'
+                    >
+                        {darkMode ? <Brightness7Icon /> : <Brightness4Icon />}
+                    </IconButton>
                 </Box>
                 <Box>
                     <List sx={{ display: "flex" }}>
