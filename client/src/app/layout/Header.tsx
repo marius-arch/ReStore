@@ -12,7 +12,7 @@ import { Box } from "@mui/system";
 import { Link, NavLink } from "react-router-dom";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
-import { useStoreContext } from "../context/StoreContext";
+import { useAppSelector } from "../store/configureStore";
 
 interface Props {
     darkMode: boolean;
@@ -43,7 +43,7 @@ const navStyles = {
 };
 
 export default function Header({ darkMode, handleThemeChange }: Props) {
-    const { basket } = useStoreContext();
+    const { basket } = useAppSelector((state) => state.basket);
     const itemCount = basket?.items.reduce(
         (sum, item) => sum + item.quantity,
         0
