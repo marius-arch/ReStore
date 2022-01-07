@@ -26,6 +26,7 @@ import { fetchBasketAsync } from "../../features/basket/basketSlice";
 import { fetchCurrentUser } from "../../features/account/accountSlice";
 import Orders from "../../features/orders/Orders";
 import CheckoutWrapper from "../../features/checkout/CheckoutWrapper";
+import Inventory from "../../features/admin/Inventory";
 
 function App() {
     const dispatch = useAppDispatch();
@@ -89,6 +90,11 @@ function App() {
                                 component={CheckoutWrapper}
                             />
                             <PrivateRoute path='/orders' component={Orders} />
+                            <PrivateRoute
+                                roles={["Admin"]}
+                                path='/inventory'
+                                component={Inventory}
+                            />
                             <Route path='/login' component={Login} />
                             <Route path='/register' component={Register} />
                             <Route component={NotFound} />
